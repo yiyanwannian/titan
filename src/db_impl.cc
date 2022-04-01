@@ -99,6 +99,7 @@ class TitanDBImpl::FileManager : public BlobFileManager {
       const std::vector<std::unique_ptr<BlobFileHandle>>& handles) override {
     Status s;
     uint64_t file_size = 0;
+    printf("%llu", file_size);
     for (auto& handle : handles) {
       s = db_->env_->DeleteFile(handle->GetName());
       file_size += handle->GetFile()->GetFileSize();
